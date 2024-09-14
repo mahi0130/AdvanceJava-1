@@ -9,75 +9,85 @@ import java.io.Serializable;
 
 public class Employee implements Serializable {
 
-	private int id;
+    // Unique identifier for each employee
+    private int id;
 
-	private String firstName;
+    // Employee's first name
+    private String firstName;
 
-	private String lastName;
+    // Employee's last name
+    private String lastName;
 
-	private transient String tempValue;
+    // Transient variable; not serialized
+    private transient String tempValue;
 
-	private static int RETIREMENT_AGE = 60;
+    // Static constant for retirement age
+    private static int RETIREMENT_AGE = 60;
 
-	public Employee() {
+    // Default constructor
+    public Employee() {
 
-	}
+    }
 
-	public Employee(int id, String firstName, String lastName) {
+    // Parameterized constructor
+    public Employee(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+    // Getter for firstName
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    // Setter for firstName
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    // Getter for id
+    public int getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    // Setter for id
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    // Getter for lastName
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    // Setter for lastName
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    /**
+     * @return the tempValue
+     */
+    public String getTempValue() {
+        return tempValue;
+    }
 
-	/**
-	 * @return the tempValue
-	 */
-	public String getTempValue() {
-		return tempValue;
-	}
+    /**
+     * @param tempValue the tempValue to set
+     */
+    public void setTempValue(String tempValue) {
+        this.tempValue = tempValue;
+    }
 
-	/**
-	 * @param tempValue
-	 *            the tempValue to set
-	 */
-	public void setTempValue(String tempValue) {
-		this.tempValue = tempValue;
-	}
+    @Override
+    public String toString() {
+        // Generating a string representation of the Employee object
+        StringBuffer sb = new StringBuffer("");
+        sb.append("ID : " + getId());
+        sb.append("\nName : " + getFirstName());
+        sb.append("\nLast Name : " + getLastName());
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		StringBuffer sb = new StringBuffer("");
-		sb.append("ID : " + getId());
-		sb.append("\nName : " + getFirstName());
-		sb.append("\nLast Name : " + getLastName());
-
-		return sb.toString();
-	}
-
+        return sb.toString();
+    }
 }
